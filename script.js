@@ -3,7 +3,7 @@ const htmlEditor = CodeMirror.fromTextArea(document.getElementById('html-editor'
   mode: 'xml',
   theme: 'material',
   lineNumbers: true,
-  autoCloseTags: true,  // Enable auto closing of HTML tags
+  autoCloseTags: true,
   extraKeys: {
     'Ctrl-/': 'toggleComment',  // Enable comment toggling with Ctrl + /
     'Cmd-/': 'toggleComment'    // For macOS users with Cmd + /
@@ -27,10 +27,10 @@ const cssEditor = CodeMirror.fromTextArea(document.getElementById('css-editor'),
   mode: 'css',
   theme: 'material',
   lineNumbers: true,
-  autoCloseBrackets: true,  // Enable auto closing of (), {}, and ""
+  autoCloseBrackets: true,
   extraKeys: {
-    'Ctrl-/': 'toggleComment',  // Enable comment toggling with Ctrl + /
-    'Cmd-/': 'toggleComment'    // For macOS users with Cmd + /
+    'Ctrl-/': 'toggleComment',
+    'Cmd-/': 'toggleComment'
   }
 });
 
@@ -38,10 +38,10 @@ const jsEditor = CodeMirror.fromTextArea(document.getElementById('js-editor'), {
   mode: 'javascript',
   theme: 'material',
   lineNumbers: true,
-  autoCloseBrackets: true,  // Enable auto closing of (), {}, and ""
+  autoCloseBrackets: true,
   extraKeys: {
-    'Ctrl-/': 'toggleComment',  // Enable comment toggling with Ctrl + /
-    'Cmd-/': 'toggleComment'    // For macOS users with Cmd + /
+    'Ctrl-/': 'toggleComment',
+    'Cmd-/': 'toggleComment'
   }
 });
 
@@ -49,7 +49,7 @@ const jsEditor = CodeMirror.fromTextArea(document.getElementById('js-editor'), {
 let debounceTimer;
 function debounceUpdate() {
   clearTimeout(debounceTimer);
-  debounceTimer = setTimeout(updateOutput, 300); // 300ms delay
+  debounceTimer = setTimeout(updateOutput, 300);
 }
 
 // Apply debouncing for each editor
@@ -61,8 +61,6 @@ jsEditor.on('change', debounceUpdate);
 function updateOutput() {
   const htmlContent = htmlEditor.getValue();
   const cssContent = `<style>${cssEditor.getValue()}</style>`;
-
-  // Wrap JS code in try-catch for error handling
   const jsContent = `
     <script>
       try {
@@ -92,13 +90,12 @@ function updateOutput() {
 function showNotification(message) {
   const notification = document.getElementById('notification-popup');
   notification.innerHTML = message;
-  notification.style.display = 'block';  // Ensure the popup is visible
+  notification.style.display = 'block';
   notification.classList.add('show');
 
-  // Hide the notification after 2 seconds
   setTimeout(() => {
     notification.classList.remove('show');
-    notification.style.display = 'none';  // Ensure it disappears
+    notification.style.display = 'none';
   }, 2000);
 }
 
@@ -152,22 +149,30 @@ document.getElementById('share-button').addEventListener('click', () => {
   }
 });
 
-// Fullscreen preview
-document.getElementById('fullscreen-button').addEventListener('click', () => {
-  const outputFrame = document.getElementById('output');
-  if (outputFrame.requestFullscreen) {
-    outputFrame.requestFullscreen();
-  } else if (outputFrame.mozRequestFullScreen) { /* Firefox */
-    outputFrame.mozRequestFullScreen();
-  } else if (outputFrame.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-    outputFrame.webkitRequestFullscreen();
-  } else if (outputFrame.msRequestFullscreen) { /* IE/Edge */
-    outputFrame.msRequestFullscreen();
+// Function to toggle fullscreen for a specific element
+function toggleFullScreen(element) {
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if (element.mozRequestFullScreen) { /* Firefox */
+    element.mozRequestFullScreen();
+  } else if (element.webkitRequestFullscreen) { /* Chrome, Safari, Opera */
+    element.webkitRequestFullscreen();
+  } else if (element.msRequestFullscreen) { /* IE/Edge */
+    element.msRequestFullscreen();
   }
+}
+
+// Event listener for fullscreen buttons
+document.querySelectorAll('.fullscreen-btn').forEach(button => {
+  button.addEventListener('click', (e) => {
+    const targetId = e.target.getAttribute('data-target');
+    const section = document.getElementById(targetId);
+    toggleFullScreen(section);
+  });
 });
 
 // Font Size Adjustment with Slider
-let currentFontSize = 14; // Default font size
+let currentFontSize = 14;
 
 document.getElementById('font-size-button').addEventListener('click', () => {
   const slider = document.getElementById('font-size-slider');
