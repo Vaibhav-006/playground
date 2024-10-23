@@ -30,34 +30,38 @@
     <!-- Main Grid Layout -->
     <main class="grid-container">
         <!-- HTML Section -->
-        <section class="grid-item">
+        <section class="grid-item" id="html-section">
             <div class="editor-header" data-editor="html">
                 <i class="fab fa-html5"></i>
                 <h2>HTML</h2>
+                <i class="fas fa-expand fullscreen-btn" data-target="html-section"></i> <!-- Fullscreen button -->
             </div>
             <textarea id="html-editor"></textarea>
         </section>
         <!-- CSS Section -->
-        <section class="grid-item">
+        <section class="grid-item" id="css-section">
             <div class="editor-header" data-editor="css">
                 <i class="fab fa-css3-alt"></i>
                 <h2>CSS</h2>
+                <i class="fas fa-expand fullscreen-btn" data-target="css-section"></i> <!-- Fullscreen button -->
             </div>
             <textarea id="css-editor"></textarea>
         </section>
         <!-- JavaScript Section -->
-        <section class="grid-item">
+        <section class="grid-item" id="js-section">
             <div class="editor-header" data-editor="js">
                 <i class="fab fa-js"></i>
                 <h2>JavaScript</h2>
+                <i class="fas fa-expand fullscreen-btn" data-target="js-section"></i> <!-- Fullscreen button -->
             </div>
             <textarea id="js-editor"></textarea>
         </section>
         <!-- Output Section -->
-        <section class="grid-item output-area">
+        <section class="grid-item output-area" id="output-section">
             <div class="editor-header">
                 <i class="fas fa-play"></i>
                 <h2>Output</h2>
+                <i class="fas fa-expand fullscreen-btn" data-target="output-section"></i> <!-- Fullscreen button -->
             </div>
             <iframe id="output" sandbox="allow-scripts"></iframe>
         </section>
@@ -78,9 +82,6 @@
         <button id="share-button" title="Share Code">
             <i class="fas fa-share-alt"></i> Share
         </button>
-        <button id="fullscreen-button" title="Fullscreen">
-            <i class="fas fa-expand"></i> Fullscreen
-        </button>
     </footer>
 
     <!-- Custom Pop-up Notification -->
@@ -95,7 +96,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/closebrackets.min.js"></script>
     <!-- Add the CodeMirror comment addon -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/comment/comment.min.js"></script>
-
 
     <!-- Custom JS -->
     <script src="script.js"></script>
