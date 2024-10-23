@@ -12,14 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/material.min.css">
 
-    <!-- CodeMirror JS & Addons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/xml/xml.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/closetag.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/closebrackets.min.js"></script> <!-- Added autoCloseBrackets addon -->
-
     <!-- Custom Styles -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -77,7 +69,6 @@
             <i class="fas fa-text-height"></i> Adjust Font Size
         </button>
         <input type="range" id="font-size-slider" min="10" max="30" value="14" style="display: none;">
-        
         <button id="save-button" title="Save Code">
             <i class="fas fa-save"></i> Save
         </button>
@@ -91,6 +82,20 @@
             <i class="fas fa-expand"></i> Fullscreen
         </button>
     </footer>
+
+    <!-- Custom Pop-up Notification -->
+    <div id="notification-popup" class="notification-popup" style="display: none;"></div>
+
+    <!-- CodeMirror JS & Addons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/closetag.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/closebrackets.min.js"></script>
+    <!-- Add the CodeMirror comment addon -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/comment/comment.min.js"></script>
+
 
     <!-- Custom JS -->
     <script src="script.js"></script>
