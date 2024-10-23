@@ -12,7 +12,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #1e1e1e;
+  background-color: rgba(30, 30, 30, 0.8); /* Make background translucent */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,18 +74,21 @@ header {
   font-weight: bold;
 }
 
-/* Logo text styling with color gradient */
+/* Stylish Heading Text */
 header h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: #ffffff;
+  background: linear-gradient(to right, #f093fb, #f5576c);
+  background-clip: text;
+  color: transparent;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
 
-/* Code icon with color and hover effects */
+/* Code icon with scale and rotation on hover */
 header h1 i.fas.fa-code {
   color: #f093fb;
   margin-right: 10px;
@@ -93,7 +96,7 @@ header h1 i.fas.fa-code {
 }
 
 header h1 i.fas.fa-code:hover {
-  transform: rotate(360deg);
+  transform: rotate(360deg) scale(1.2);
   color: #f5576c;
 }
 
@@ -135,6 +138,19 @@ header h1 i.fas.fa-code:hover {
 
 [data-editor="js"] i {
   color: #f0db4f;
+}
+
+/* Fullscreen Button Styling */
+.fullscreen-btn {
+  margin-left: auto;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #f0f0f0;
+  transition: color 0.3s ease;
+}
+
+.fullscreen-btn:hover {
+  color: #f5576c;
 }
 
 /* Main Grid Container */
@@ -194,11 +210,10 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px; /* Add spacing between buttons */
-  flex-wrap: wrap; /* Allows wrapping of buttons on smaller screens */
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-/* Button Base Styles */
 button {
   background-color: #6a1b9a;
   color: white;
@@ -243,17 +258,17 @@ button:active {
   z-index: 1000;
   opacity: 0;
   transition: opacity 0.5s ease;
-  display: none; /* Initially hidden */
+  display: none;
 }
 
 .notification-popup.show {
-  opacity: 1; /* Make it visible */
-  display: block; /* Ensure it's displayed */
+  opacity: 1;
+  display: block;
 }
 
 .notification-popup.hide {
-  opacity: 0; /* Fade out */
-  display: none; /* Hide after transition */
+  opacity: 0;
+  display: none;
 }
 
 /* Responsive Design for Tablets */
