@@ -18,6 +18,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/closetag.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/closebrackets.min.js"></script> <!-- Added autoCloseBrackets addon -->
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="style.css">
@@ -72,6 +73,11 @@
 
     <!-- Footer with Buttons -->
     <footer>
+        <button id="font-size-button" title="Adjust Font Size">
+            <i class="fas fa-text-height"></i> Adjust Font Size
+        </button>
+        <input type="range" id="font-size-slider" min="10" max="30" value="14" style="display: none;">
+        
         <button id="save-button" title="Save Code">
             <i class="fas fa-save"></i> Save
         </button>
